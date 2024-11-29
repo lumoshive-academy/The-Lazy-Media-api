@@ -8,6 +8,7 @@ const app = express()
 const port = process.env.PORT || 3000
 
 app.use(cors())
+app.use(express.json())
 
 app.use('/api', router)
 
@@ -20,8 +21,7 @@ app.get('/', (req, res) => {
 
 app.get('*', (req, res) => {
   res.send({
-    message: 'endpoint not found, visit link on bellow for documentation 👇',
-    documentation: 'https://github.com/NicolaDonoastro/The-Lazy-Media-api',
+    message: 'endpoint not found',
   })
 })
 
